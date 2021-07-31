@@ -13,7 +13,7 @@ class ErrorResponse
     public string $type;
     /** @var string[] */
     public array $fields;
-    /** @var null|ErrorResponse[] */
+    /** @var ErrorResponse[]|null */
     public ?array $innerErrors;
 
     public function __construct(string $message, string $type, array $fields, ?array $innerErrors)

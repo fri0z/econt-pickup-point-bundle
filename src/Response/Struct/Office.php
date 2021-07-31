@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Answear\EcontBundle\Response\Struct;
 
-use Answear\EcontBundle\Enum\ShipmentType;
 use Answear\EcontBundle\Enum\OfficeType;
+use Answear\EcontBundle\Enum\ShipmentType;
 use Webmozart\Assert\Assert;
 
 class Office
@@ -80,7 +80,7 @@ class Office
                 $officeData['halfDayBusinessHoursTo']
             );
         }
-        $office->shipmentTypes = array_map(fn($type) => ShipmentType::get($type), $officeData['shipmentTypes']);
+        $office->shipmentTypes = array_map(fn ($type) => ShipmentType::get($type), $officeData['shipmentTypes']);
         $office->partnerCode = $officeData['partnerCode'];
         $office->hubCode = $officeData['hubCode'];
         $office->hubName = $officeData['hubName'];

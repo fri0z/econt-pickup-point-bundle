@@ -1,0 +1,66 @@
+{
+  "offices": [
+    {
+      "id": 33701,
+      "code": "15774",
+      "isMPS": false,
+      "isAPS": false,
+      "name": "ACS AFTHIMERON ATTIKIS",
+      "nameEn": "ACS AFTHIMERON ATTIKIS",
+      "phones": [
+        "2107714680"
+      ],
+      "emails": [
+        "shops@acscourier.gr"
+      ],
+      "address": {
+        "id": null,
+        "city": {
+          "id": 55978,
+          "country": {
+            "id": 1084,
+            "code2": "GR",
+            "code3": "GRC",
+            "name": "Гърция",
+            "nameEn": "Greece",
+            "isEU": true
+          },
+          "postCode": "10431",
+          "name": "Αθήνα",
+          "nameEn": "ATHINA",
+          "regionName": null,
+          "regionNameEn": null,
+          "phoneCode": null,
+          "location": null,
+          "expressCityDeliveries": null
+        },
+        "fullAddress": " Αθήνα Bairaktari 15",
+        "quarter": null,
+        "street": null,
+        "num": "",
+        "other": "Bairaktari 15",
+        "location": {
+          "latitude": 37.983696666667,
+          "longitude": 23.771268333333,
+          "confidence": 3
+        },
+        "zip": null
+      },
+      "info": "",
+      "currency": "EUR",
+      "language": null,
+      "normalBusinessHoursFrom": 1627534800000,
+      "normalBusinessHoursTo": 1627578000000,
+      "halfDayBusinessHoursFrom": 1627538400000,
+      "halfDayBusinessHoursTo": 1627552800000,
+      "shipmentTypes": [
+        "courier"
+      ],
+      "partnerCode": "ACS",
+      "hubCode": "500906",
+      "hubName": "ACS Greece",
+      "hubNameEn": "ACS Greece"
+    }
+  ]
+}
+

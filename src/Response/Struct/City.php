@@ -31,7 +31,7 @@ class City
         Assert::keyExists($cityData, 'phoneCode');
         Assert::keyExists($cityData, 'expressCityDeliveries');
 
-        $city = new self;
+        $city = new self();
         $city->id = $cityData['id'];
         $city->country = Country::fromArray($cityData['country']);
         $city->postalCode = $cityData['postCode'];

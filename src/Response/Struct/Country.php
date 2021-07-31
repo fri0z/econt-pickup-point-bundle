@@ -24,7 +24,7 @@ class Country
         Assert::keyExists($countryData, 'nameEn');
         Assert::keyExists($countryData, 'isEU');
 
-        $country = new self;
+        $country = new self();
         $country->id = $countryData['id'];
         $country->code2 = $countryData['code2'];
         $country->code3 = $countryData['code3'];

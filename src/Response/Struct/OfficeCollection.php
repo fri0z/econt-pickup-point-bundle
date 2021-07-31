@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Answear\EcontBundle\Response\Struct;
 
+use function count;
 use Countable;
 use IteratorAggregate;
 use Webmozart\Assert\Assert;
-use function count;
 
 /**
  * Only Address type 1 supported
