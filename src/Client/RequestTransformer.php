@@ -26,7 +26,7 @@ class RequestTransformer
     {
         return new HttpRequest(
             $request->getMethod(),
-            new Uri($this->configuration->getServiceUrl() . $request->getEndpoint()),
+            new Uri($this->configuration->getServiceURI() . $request->getEndpoint()),
             [
                 'Content-type' => 'application/json',
             ],

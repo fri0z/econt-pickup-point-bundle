@@ -17,6 +17,6 @@ class ConfigProviderTest extends TestCase
         $configuration = new ConfigProvider();
 
         $this->assertSame('http://ee.econt.com/', $configuration->getUrl());
-        $this->assertSame('/services/Nomenclatures/', $configuration->getServiceUrl());
+        $this->assertSame('/services/Nomenclatures/', $configuration->getServiceURI());
     }
 }

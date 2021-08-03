@@ -48,6 +48,6 @@ class RequestTransformerTest extends TestCase
 
     private function expectedPath(Request $request): string
     {
-        return (new ConfigProvider())->getServiceUrl() . $request->getEndpoint();
+        return (new ConfigProvider())->getServiceURI() . $request->getEndpoint();
     }
 }
