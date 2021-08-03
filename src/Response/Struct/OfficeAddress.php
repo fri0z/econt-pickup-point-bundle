@@ -15,8 +15,7 @@ class OfficeAddress
     public ?string $street;
     public ?string $num;
     public string $other;
-    public ?float $latitude;
-    public ?float $longitude;
+    public ?Coordinates $coordinates;
     public ?string $postalCode;
 
     public static function fromArray(array $addressData): self
@@ -29,8 +28,6 @@ class OfficeAddress
         Assert::keyExists($addressData, 'num');
         Assert::keyExists($addressData, 'other');
         Assert::keyExists($addressData, 'location');
-        Assert::keyExists($addressData['location'], 'latitude');
-        Assert::keyExists($addressData['location'], 'longitude');
         Assert::keyExists($addressData, 'zip');
 
         $address = new self();
@@ -41,8 +38,7 @@ class OfficeAddress
         $address->street = $addressData['street'];
         $address->num = $addressData['num'];
         $address->other = $addressData['other'];
-        $address->latitude = $addressData['location']['latitude'];
-        $address->longitude = $addressData['location']['longitude'];
+        $address->coordinates = Coordinates::fromArray($addressData['location']);
         $address->postalCode = $addressData['zip'];
 
         return $address;

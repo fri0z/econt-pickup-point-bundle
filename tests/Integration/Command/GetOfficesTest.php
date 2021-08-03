@@ -47,6 +47,22 @@ class GetOfficesTest extends TestCase
     /**
      * @test
      */
+    public function getOfficeWithEmptyCoordinates(): void
+    {
+        $command = $this->getCommand();
+        $this->mockGuzzleResponse(new Response(200, [], $this->getBodyWithEmptyCoords()));
+
+        $response = $command->getOffices(new GetOfficesRequest());
+        $office = $response->getOffices()->getIterator()->current();
+
+        $this->assertNotNull($office);
+        $this->assertSame($office->id, 33701);
+        $this->assertNull($office->address->coordinates);
+    }
+
+    /**
+     * @test
+     */
     public function responseWithError(): void
     {
         $this->expectException(MalformedResponseException::class);
@@ -63,7 +79,7 @@ class GetOfficesTest extends TestCase
 
     private function assertOffice(GetOfficesResponse $response): void
     {
-        $office = $response->getOffices()->get(0);
+        $office = $response->getOffices()->getIterator()->current();
 
         $this->assertNotNull($office);
         $this->assertSame($office->id, 33701);
@@ -90,8 +106,8 @@ class GetOfficesTest extends TestCase
         $this->assertSame($office->address->fullAddress, ' Αθήνα Bairaktari 15');
         $this->assertSame($office->address->num, '');
         $this->assertSame($office->address->other, 'Bairaktari 15');
-        $this->assertSame($office->address->latitude, 37.983696666667);
-        $this->assertSame($office->address->longitude, 23.771268333333);
+        $this->assertSame($office->address->coordinates->latitude, 37.983696666667);
+        $this->assertSame($office->address->coordinates->longitude, 23.771268333333);
         $this->assertSame($office->info, '');
         $this->assertSame($office->currency, 'EUR');
         $this->assertNull($office->language);
@@ -113,6 +129,11 @@ class GetOfficesTest extends TestCase
     private function getSuccessfulBody(): string
     {
         return file_get_contents(__DIR__ . '/data/exampleResponse.json');
+    }
+
+    private function getBodyWithEmptyCoords(): string
+    {
+        return file_get_contents(__DIR__ . '/data/exampleResponseWithEmptyCoords.json');
     }
 
     private function getErrorBody(): string

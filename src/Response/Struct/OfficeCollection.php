@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace Answear\EcontBundle\Response\Struct;
 
-use function count;
+use ArrayIterator;
 use Countable;
 use IteratorAggregate;
 use Webmozart\Assert\Assert;
 
-/**
- * Only Address type 1 supported
- *
- * @url https://api.speedy.bg/web-api.html#href-ds-shipment-address
- */
 class OfficeCollection implements Countable, IteratorAggregate
 {
     /**
@@ -29,22 +24,15 @@ class OfficeCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @return Office[]
+     * @return Office[]|ArrayIterator
      */
-    public function getIterator(): iterable
+    public function getIterator(): ArrayIterator
     {
-        foreach ($this->offices as $key => $office) {
-            yield $key => $office;
-        }
-    }
-
-    public function get($key): ?Office
-    {
-        return $this->offices[$key] ?? null;
+        return new ArrayIterator($this->offices);
     }
 
     public function count(): int
     {
-        return count($this->offices);
+        return \count($this->offices);
     }
 }

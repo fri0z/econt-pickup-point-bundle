@@ -20,7 +20,7 @@ class SerializerTest extends TestCase
      * @test
      * @dataProvider provider
      */
-    public function requestAuthentication(Request $request, string $expectedBody): void
+    public function bodySerialization(Request $request, string $expectedBody): void
     {
         $serializer = new Serializer();
 
@@ -30,17 +30,17 @@ class SerializerTest extends TestCase
     public function provider(): iterable
     {
         yield 'requestFields' => [
-            $this->getAuthenticatedRequest('GR', 1),
+            $this->getRequest('GR', 1),
             '{"countryCode":"GR","cityId":1}',
         ];
 
         yield 'skipNullValues' => [
-            $this->getAuthenticatedRequest('GR', null),
+            $this->getRequest('GR', null),
             '{"countryCode":"GR"}',
         ];
     }
 
-    private function getAuthenticatedRequest(string $countryCode = null, ?int $cityId = null): Request
+    private function getRequest(string $countryCode = null, ?int $cityId = null): Request
     {
         return new GetOfficesRequest($countryCode, $cityId);
     }

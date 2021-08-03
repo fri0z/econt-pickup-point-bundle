@@ -80,12 +80,23 @@ class Office
                 $officeData['halfDayBusinessHoursTo']
             );
         }
-        $office->shipmentTypes = array_map(fn ($type) => ShipmentType::get($type), $officeData['shipmentTypes']);
+        $office->shipmentTypes = array_map(
+            function (string $type) {
+                try {
+                    return ShipmentType::get($type);
+                } catch (\InvalidArgumentException $exception) {
+                    // NOP, do not fail hard for new services
+                }
+            },
+            $officeData['shipmentTypes']
+        );
         $office->partnerCode = $officeData['partnerCode'];
         $office->hubCode = $officeData['hubCode'];
         $office->hubName = $officeData['hubName'];
         $office->hubNameEn = $officeData['hubNameEn'];
-        $office->officeType = $office->isAPS ? OfficeType::aps() : OfficeType::office();
+        $office->officeType = $office->isAPS
+            ? OfficeType::aps()
+            : ($office->isMPS ? OfficeType::mps() : OfficeType::office());
 
         return $office;
     }

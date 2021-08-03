@@ -10,6 +10,7 @@ class OfficeType extends Enum
 {
     public const OFFICE = 'office';
     public const APS = 'aps';
+    public const MPS = 'mps';
 
     public static function office(): self
     {
@@ -19,5 +20,10 @@ class OfficeType extends Enum
     public static function aps(): self
     {
         return static::get(static::APS);
+    }
+
+    public static function mps(): self
+    {
+        return static::get(static::MPS);
     }
 }
