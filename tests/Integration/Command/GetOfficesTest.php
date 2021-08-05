@@ -128,12 +128,12 @@ class GetOfficesTest extends TestCase
 
     private function getSuccessfulBody(): string
     {
-        return file_get_contents(__DIR__ . '/data/exampleResponse.json');
+        return file_get_contents(__DIR__ . '/data/example.getOfficesResponse.json');
     }
 
     private function getBodyWithEmptyCoords(): string
     {
-        return file_get_contents(__DIR__ . '/data/exampleResponseWithEmptyCoords.json');
+        return file_get_contents(__DIR__ . '/data/example.getOfficesResponseWithEmptyCoords.json');
     }
 
     private function getErrorBody(): string

@@ -16,6 +16,7 @@ class City
     public ?string $regionName;
     public ?string $regionNameEn;
     public ?string $phoneCode;
+    public ?Coordinates $coordinates;
     public ?bool $expressDeliveries;
 
     public static function fromArray(array $cityData): self
@@ -41,6 +42,7 @@ class City
         $city->regionNameEn = $cityData['regionNameEn'];
         $city->phoneCode = $cityData['phoneCode'];
         $city->expressDeliveries = $cityData['expressCityDeliveries'];
+        $city->coordinates = Coordinates::fromArray($cityData['location'] ?? []);
 
         return $city;
     }
