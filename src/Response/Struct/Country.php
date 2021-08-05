@@ -8,7 +8,7 @@ use Webmozart\Assert\Assert;
 
 class Country
 {
-    public int $id;
+    public ?int $id;
     public string $code2;
     public string $code3;
     public string $name;
