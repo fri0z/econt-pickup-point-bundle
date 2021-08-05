@@ -24,6 +24,15 @@ use Answear\EcontBundle\Request\GetOfficesRequest;
 $getOfficeResponse = $getOfficesCommand->getOffices(new GetOfficesRequest());
 ```
 
+### Get Cities
+
+```php
+use Answear\EcontBundle\Command\GetCities;
+use Answear\EcontBundle\Request\GetCitiesRequest;
+
+/** @var GetCities $getCitiesCommand */
+$getCitiesResponse = $getCitiesCommand->getCities(new GetCitiesRequest());
+```
 
 Final notes
 ------------
