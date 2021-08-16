@@ -72,7 +72,7 @@ class Office
         $office->language = $officeData['language'];
         if (null !== $officeData['normalBusinessHoursFrom'] && null !== $officeData['normalBusinessHoursTo']) {
             $office->openingHours = new OpeningHours(
-                $officeData['normalBusinessHoursTo'],
+                $officeData['normalBusinessHoursFrom'],
                 $officeData['normalBusinessHoursTo']
             );
         }
