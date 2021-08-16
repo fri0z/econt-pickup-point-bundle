@@ -24,7 +24,7 @@ class Office
     public string $info;
     public string $currency;
     public ?string $language;
-    public OpeningHours $openingHours;
+    public ?OpeningHours $openingHours;
     public ?OpeningHours $halfDayOpeningHours = null;
     /** @var ShipmentType[] */
     public array $shipmentTypes;
@@ -48,8 +48,8 @@ class Office
         Assert::string($officeData['info']);
         Assert::stringNotEmpty($officeData['currency']);
         Assert::nullOrString($officeData['language']);
-        Assert::integer($officeData['normalBusinessHoursFrom']);
-        Assert::integer($officeData['normalBusinessHoursTo']);
+        Assert::nullOrInteger($officeData['normalBusinessHoursFrom']);
+        Assert::nullOrInteger($officeData['normalBusinessHoursTo']);
         Assert::nullOrInteger($officeData['halfDayBusinessHoursFrom']);
         Assert::nullOrInteger($officeData['halfDayBusinessHoursTo']);
         Assert::string($officeData['partnerCode']);
@@ -70,10 +70,12 @@ class Office
         $office->info = $officeData['info'];
         $office->currency = $officeData['currency'];
         $office->language = $officeData['language'];
-        $office->openingHours = new OpeningHours(
-            $officeData['normalBusinessHoursFrom'],
-            $officeData['normalBusinessHoursTo']
-        );
+        if (null !== $officeData['normalBusinessHoursFrom'] && null !== $officeData['normalBusinessHoursTo']) {
+            $office->openingHours = new OpeningHours(
+                $officeData['normalBusinessHoursFrom'],
+                $officeData['normalBusinessHoursTo']
+            );
+        }
         if (null !== $officeData['halfDayBusinessHoursFrom'] && null !== $officeData['halfDayBusinessHoursTo']) {
             $office->halfDayOpeningHours = new OpeningHours(
                 $officeData['halfDayBusinessHoursFrom'],
