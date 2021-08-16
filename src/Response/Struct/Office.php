@@ -24,7 +24,7 @@ class Office
     public string $info;
     public string $currency;
     public ?string $language;
-    public ?OpeningHours $openingHours;
+    public ?OpeningHours $openingHours = null;
     public ?OpeningHours $halfDayOpeningHours = null;
     /** @var ShipmentType[] */
     public array $shipmentTypes;
