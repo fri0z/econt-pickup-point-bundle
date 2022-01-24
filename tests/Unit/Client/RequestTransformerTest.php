@@ -24,7 +24,7 @@ class RequestTransformerTest extends TestCase
         parent::setUp();
 
         $this->serializer = $this->createMock(Serializer::class);
-        $this->transformer = new RequestTransformer($this->serializer, new ConfigProvider());
+        $this->transformer = new RequestTransformer($this->serializer, new ConfigProvider('test', 'Qwerty123!'));
     }
 
     /**
@@ -48,6 +48,6 @@ class RequestTransformerTest extends TestCase
 
     private function expectedPath(Request $request): string
     {
-        return (new ConfigProvider())->getServiceURI() . $request->getEndpoint();
+        return (new ConfigProvider('test', 'Qwerty123!'))->getServiceURI() . $request->getEndpoint();
     }
 }

@@ -12,6 +12,17 @@ composer require answear/econt-pickup-point-bundle
 `Answear\EcontBundle\AnswearEcontBundle::class => ['all' => true],`  
 should be added automatically to your `config/bundles.php` file by Symfony Flex.
 
+## Setup
+
+```yaml
+# config/packages/answear_econt.yaml
+answear_econt:
+    user: 'username'
+    password: 'password'
+```
+
+config will be passed to `\Answear\EcontBundle\ConfigProvider` class.
+
 ## Usage
 
 ### Get Offices
