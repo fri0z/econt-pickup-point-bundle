@@ -27,7 +27,7 @@ class GetOfficesTest extends TestCase
     {
         parent::setUp();
 
-        $this->client = new Client(new ConfigProvider(), $this->setupGuzzleClient());
+        $this->client = new Client(new ConfigProvider('test', 'Qwerty123!'), $this->setupGuzzleClient());
     }
 
     /**
@@ -121,7 +121,7 @@ class GetOfficesTest extends TestCase
 
     private function getCommand(): GetOffices
     {
-        $transformer = new RequestTransformer(new Serializer(), new ConfigProvider());
+        $transformer = new RequestTransformer(new Serializer(), new ConfigProvider('test', 'Qwerty123!'));
 
         return new GetOffices($this->client, $transformer);
     }

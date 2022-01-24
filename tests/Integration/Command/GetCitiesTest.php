@@ -25,7 +25,7 @@ class GetCitiesTest extends TestCase
     {
         parent::setUp();
 
-        $this->client = new Client(new ConfigProvider(), $this->setupGuzzleClient());
+        $this->client = new Client(new ConfigProvider('test', 'Qwerty123!'), $this->setupGuzzleClient());
     }
 
     /**
@@ -64,7 +64,7 @@ class GetCitiesTest extends TestCase
 
     private function getCommand(): GetCities
     {
-        $transformer = new RequestTransformer(new Serializer(), new ConfigProvider());
+        $transformer = new RequestTransformer(new Serializer(), new ConfigProvider('test', 'Qwerty123!'));
 
         return new GetCities($this->client, $transformer);
     }

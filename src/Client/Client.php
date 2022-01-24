@@ -20,11 +20,7 @@ class Client
         ConfigProvider $configuration,
         ?ClientInterface $client = null
     ) {
-        $this->client = $client ?? new GuzzleClient(
-            [
-                'base_uri' => $configuration->getUrl(),
-            ]
-        );
+        $this->client = $client ?? new GuzzleClient($configuration->getRequestHeaders());
     }
 
     public function request(Request $request): ResponseInterface
