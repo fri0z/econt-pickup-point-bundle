@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property Answear\\\\EcontBundle\\\\Request\\\\GetCitiesRequest\\:\\:\\$countryCode is never read, only written\\.$#"
+			count: 1
+			path: src/Request/GetCitiesRequest.php
+
+		-
+			message: "#^Property Answear\\\\EcontBundle\\\\Request\\\\GetOfficesRequest\\:\\:\\$cityId is never read, only written\\.$#"
+			count: 1
+			path: src/Request/GetOfficesRequest.php
+
+		-
+			message: "#^Property Answear\\\\EcontBundle\\\\Request\\\\GetOfficesRequest\\:\\:\\$countryCode is never read, only written\\.$#"
+			count: 1
+			path: src/Request/GetOfficesRequest.php

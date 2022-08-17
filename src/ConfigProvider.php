@@ -8,6 +8,7 @@ class ConfigProvider
 {
     private const URL = 'http://ee.econt.com/';
     private const SERVICE_URI = '/services/Nomenclatures/';
+
     private string $user;
     private string $password;
 
@@ -27,12 +28,12 @@ class ConfigProvider
 
     public function getUrl(): string
     {
-        return static::URL;
+        return self::URL;
     }
 
     public function getServiceURI(): string
     {
-        return static::SERVICE_URI;
+        return self::SERVICE_URI;
     }
 
     public function getUser(): string
