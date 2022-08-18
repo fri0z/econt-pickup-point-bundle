@@ -31,7 +31,7 @@ class ErrorResponse
 
     public static function fromArray(array $response): self
     {
-        if (!static::isErrorResponse($response)) {
+        if (!self::isErrorResponse($response)) {
             throw new RuntimeException('Cannot create ErrorResponse');
         }
 

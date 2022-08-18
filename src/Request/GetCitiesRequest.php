@@ -18,11 +18,11 @@ class GetCitiesRequest extends Request
 
     public function getEndpoint(): string
     {
-        return static::ENDPOINT;
+        return self::ENDPOINT;
     }
 
     public function getMethod(): string
     {
-        return static::HTTP_METHOD;
+        return self::HTTP_METHOD;
     }
 }
